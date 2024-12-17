@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Vedanta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url(Images/haridwar-image.jpg); 
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+
+        .description {
+            color: navy;  
+            font-size: 1.5em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 15px;
+            background: linear-gradient(135deg, #27ae60, #2c3e50);
+            border-radius: 8px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            font-weight: bold;
+         
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 30px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #913021;
+        }
+
+        .features, .hotel-photos, .booking {
+            display: none;
+        }
+
+        .details, .contact {
+            margin-top: 30px;
+        }
+
+        .details h2, .contact h2 {
+            color: #34495e;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .details ul {
+            list-style-type: square;
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .details p {
+            margin: 12px 0;
+            font-size: 1.2em;
+        }
+
+        .summary {
+            color: red;  
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .blink {
+            animation: blink 1s step-start 0s infinite;
+            font-size: 1.5em;
+            margin-top: 40px;
+            color: #e74c3c;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #2c3e50;
+            color: #fff;
+            border-radius: 0 0 10px 10px;
+        }
+
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+            height: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .feature img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .feature p {
+            color: navy;
+            font-size: 1.2em;
+        }
+
+        .thumbnails img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        
+        .booking {
+            background-color: #f39c12;  
+            color: #2c3e50;  
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .booking h2 {
+            color: #fff;
+            font-size: 2em;
+        }
+
+        .booking p {
+            font-size: 1.3em;
+        }
+
+        .booking a {
+            color: #fff;
+            background-color: #16a085;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            text-decoration: none;
+        }
+
+        .booking a:hover {
+            background-color: #1abc9c;
+        }
+    </style>
+</head>
+<body>
+
+      
+      <audio id="bell-sound" src="Images/Har Har Gange Instrumental.mp3" autoplay loop></audio>
+
+    <div class="container">
+       
+        <div class="header">
+            <h1>PG Vedanta</h1>
+        </div>
+        <div class="description">
+            PG Vedanta is a serene and comfortable guest house located in the holy city of Haridwar. This guest house caters to tourists who are looking for a peaceful and pleasant stay while exploring the spiritual and cultural offerings of Haridwar.
+        </div>
+
+        
+        <div class="buttons">
+            <a href="#" class="btn" onclick="window.location.href='pgvedanta.html';">Home</a>
+            <a href="#" class="btn" onclick="showSection('features')">Features</a>
+            <a href="#" class="btn" onclick="showSection('hotel-photos')">Hotel Photos</a>
+            <a href="#" class="btn" onclick="showSection('booking')">Online Booking</a>
+        </div>
+
+        
+        <div id="features" class="features">
+            <h2>Our Features</h2>
+            <div class="feature">
+                <img src="Images/electricity.jpg" alt="Electricity">
+                <p><strong>Electricity</strong>: 24/7 power supply to ensure your comfort during your stay.</p>
+            </div>
+            <div class="feature">
+                <img src="Images/wifi.jpg" alt="Wi-Fi">
+                <p><strong>Wi-Fi</strong>: High-speed internet for all your browsing and work needs.</p>
+            </div>
+            <div class="feature">
+                <img src="Images/power backup.jpg" alt="Power Backup">
+                <p><strong>Power Backup</strong>: In case of power failure, our backup system ensures you're never without power.</p>
+            </div>
+            <div class="feature">
+                <img src="Images/furnished-room.jpg" alt="Furnished Room">
+                <p><strong>Furnished Rooms</strong>: Rooms equipped with modern furniture for a comfortable stay.</p>
+            </div>
+            <div class="feature">
+                <img src="Images/greenlawn.jpg" alt="Green Lawn">
+                <p><strong>Green Lawn</strong>: A spacious, eco-friendly green lawn to relax and enjoy the outdoors.</p>
+            </div>
+        </div>
+
+        
+        <div id="hotel-photos" class="hotel-photos">
+            <h2>Hotel Photos</h2>
+            <div class="thumbnails">
+                <img src="Images/mainIMG1.jpg" alt="Hotel" onclick="openModal(this.src)">
+                <img src="Images/mainIMG2.jpg" alt="Room Thumbnail" onclick="openModal(this.src)">
+                <img src="Images/img3.jpg" alt="Room Thumbnail" onclick="openModal(this.src)">
+                <img src="Images/img4.jpg" alt="Kitchen Thumbnail" onclick="openModal(this.src)">
+                <img src="Images/img5.jpg" alt="Lawn Thumbnail" onclick="openModal(this.src)">
+                <img src="Images/img6.jpg" alt="Facilities Thumbnail" onclick="openModal(this.src)">
+            </div>
+        </div>
+
+        
+        <div id="booking" class="booking">
+            <h2>Contact Us for Online Booking</h2>
+            <p>Call us at: <strong>+91 83681 53968</strong></p>
+            <p>Call us at: <strong>+91 8368152654</strong></p>
+            <p>Or email us at: <strong>anilsingh.198010@gmail.com</strong></p>
+            <p>Or fill out our <a href="https://forms.gle/GA4ALGo4mAeveKoFA" target="_blank">Google Form</a> for booking.</p>
+        </div>
+
+        <div class="summary">
+            <p>PG Vedanta offers a serene and comfortable stay with modern amenities. Explore the beauty of Haridwar with us!</p>
+        </div>
+
+        
+        <div class="blink">
+            <h2>Thank you for choosing PG Vedanta!</h2>
+        </div>
+
+        
+        <footer>
+            <p>&copy; 2024 PG Vedanta. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+    
+
+    <script>
+         
+         function triggerAudio() {
+            var audio = document.getElementById('bell-sound');
+            audio.play(); 
+        }
+
+
+        function showSection(section) {
+            document.querySelectorAll('.features, .hotel-photos, .booking').forEach(function(sec) {
+                sec.style.display = 'none';
+            });
+            document.getElementById(section).style.display = 'block';
+        }
+
+        function openModal(src) {
+            var modal = document.createElement("div");
+            modal.className = "modal";
+            var modalContent = document.createElement("img");
+            modalContent.src = src;
+            modalContent.className = "modal-content";
+            var closeBtn = document.createElement("span");
+            closeBtn.className = "close";
+            closeBtn.innerHTML = "&times;";
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            };
+            modal.appendChild(modalContent);
+            modal.appendChild(closeBtn);
+            document.body.appendChild(modal);
+            modal.style.display = "flex";
+        }
+    </script>
+
+</body>
+</html>
